@@ -33,17 +33,19 @@ public class Main {
     public static void detectOSVersion(int isAndroid, int clientDeviceYear) {
         System.out.println("Task 2:");
         int currentYear = LocalDate.now().getYear();
-        if (isAndroid == 1) {
-            if (clientDeviceYear < currentYear)
-                System.out.println("Установите облегченную версию приложения для Android по ссылке");
-            else System.out.println("Установите версию приложения для Android по ссылке");
+        String operationSystem;
+        String version;
+        if(isAndroid == 1){
+            operationSystem = "Android";
         } else {
-            if (clientDeviceYear < currentYear) {
-                System.out.println("Установите облегченную версию приложения для iOSпо ссылке");
-            } else {
-                System.out.println("Установите версию приложения для iOS по ссылке");
-            }
+            operationSystem = "iOS";
         }
+        if (clientDeviceYear < currentYear){
+            version = "облегченную"+" ";
+        } else {
+            version = "";
+        }
+        System.out.println("Установите "+version+"версию приложения для "+operationSystem+" по ссылку");
     }
 
     //Task3
